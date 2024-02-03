@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Self-learning Module example 1</title>
+    <link rel="stylesheet" href="style.css" />
+    <!--Make the math equations to show-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+    <!-- codes highlight -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"
+    />
+  </head>
+
+  <body>
+    <img class="icon" src="images/UM icon.png" alt="The logo of UM" />
+    <h1>
+      Self-learning Module: Calculate the distance between the curve $y=x^2$ and
+      $y=-(x-2)^2- \frac{1}{2}$
+    </h1>
+    <!-- Visualization part 0 -->
+    <h2>Visualization of the Problem</h2>
+    <p>
+      <em>
+        Before starting to go for calculation, let's visualize the problem
+        below. By dragging the points, you can try to find out some insights
+        about distance.
+      </em>
+    </p>
+
+    <button id="drw_but" class="shbt" onclick="draw()">
+      <span>Hide Graph</span>
+    </button>
+    <br />
+    <br />
+    <!-- embed the praph from geogebra -->
+    <div>
+      <iframe
+        id="visual"
+        src="https://www.geogebra.org/graphing/h5npttvy?embed"
+        width="1200"
+        height="400"
+        allowfullscreen
+        style="border: 1px solid #e4e4e4; border-radius: 4px"
+        frameborder="0"
+      ></iframe>
+    </div>
+    <!-- Visualization part 1 -->
+
+    <!-- usage guidance 0 -->
+    <h2>Usage Guidance</h2>
+    <em>
+      Now, you can start to try to figure out this problem by yourself!
+      <dl>
+        <dt>Have your final answer?</dt>
+        <dd>You can check it by clicking the buttons at the buttom.</dd>
+
+        <dt>Get stucked?</dt>
+        <dd>You can jump to the specific step to solve your stuck points.</dd>
+
+        <dt>Totally no idea how to start?</dt>
+        <dd>
+          Welcom to follow the step-by-step self-learning procedures to find out
+          the solution.
+          <br />
+          However, it's highly recommended to <b>get your hands on</b> it to
+          reveal the answer by yourself after reading the hint.
+          <br />
+          The <b>detailed solutions</b> are provided in 'Check' button in every
+          steps.
+        </dd>
+
+        <dt>What's 'Reference' below?</dt>
+        <dd>
+          It's mostly about the theory support of the corresponding steps.
+          Highly recommend checking the reference.
+        </dd>
+      </dl>
+    </em>
+    <!-- usage guidance 1 -->
+
+    <!-- Step by step Self-learning 0 -->
+    <h2>Step-by-step Self-learning Procedures</h2>
+    <ol type="1">
+      <em>
+        <li>
+          Get the function for the distance between any two points of two
+          curves.
+          <br />
+          To make calculation easier, we usually use distance$^2$ without
+          changing the roots of the function.
+          <button id="but_1_1" onclick="hint_show(1)">Hint</button>
+          <button id="but_1_2" onclick="check_show(1)">Check</button>
+        </li>
+
+        <!-- The content for step 1 -->
+        <div class="plain_container" id="step_1">
+          <div id="s1_hint" class="unsee_child">
+            <p>
+              <!--Hint 1-->
+              Use unknown variables to represent any point on two curves
+              respectively. <br />
+              Then, you can write the function of the distance(or distance$^2$).
+              <br />
+              But, be careful to go further without thinking to find a troubless
+              way.
+            </p>
+          </div>
+
+          <div id="s1_check" class="unsee_child">
+            <p>
+              <!--check 1-->
+              Let $A=(a, a^2)$ and $B=(b, -(b-2)^2-\frac{1}{2})$ be any points
+              on the curves $y=x^2$ and $y=-(x-2)^2-\frac{1}{2}$, respectively.
+              <br />
+              Thus, we get the function: <br />
+              $ distance = |AB| = |a-b, a^2+(b-2)^2 + \frac{1}{2}| <br />
+              $ $distance^2 = |AB|^2 = (a-b)^2 + [a^2 + (b-2)^2 + \frac{1}{2}
+              ]^2$
+            </p>
+          </div>
+        </div>
+        <!-- The content for step 1-->
+
+        <li>
+          The tangent lines of the points would have the <b>same slope</b> when
+          the distance is minimal.
+          <br />
+          Thus, you will get an equation about the relationship of two points.
+          <button id="but_2_1" onclick="hint_show(2)">Hint</button>
+          <button id="but_2_2" onclick="check_show(2)">Check</button>
+        </li>
+
+        <!-- The content for step 2 -->
+        <div class="plain_container" id="step_2">
+          <div id="s2_hint" class="unsee_child">
+            <p>
+              <!-- Hint 2 -->
+              Write down the tangent line functions of points A and B.<br />
+              When the distance is minimized, their slopes should be same.<br />
+              Thus, you will get a equation about the relationship of two
+              unknown variables.
+            </p>
+          </div>
+
+          <div id="s2_check" class="unsee_child">
+            <p>
+              <!-- Check 2  -->
+              The slope of the tangent line of point A: $2a$; <br />
+              The slope of the tangent line of point B: $-2(b-2)=-2b+4$;<br />
+              The slope should be same: $ 2a=-2b+4 $ &rArr; $a+b=2$
+            </p>
+          </div>
+        </div>
+
+        <!-- The content for step 2-->
+
+        <li>
+          Simplify the function by discarding one unknown variable.
+          <button id="but_3_1" onclick="hint_show(3)">Hint</button>
+          <button id="but_3_2" onclick="check_show(3)">Check</button>
+        </li>
+
+        <!-- The content for step 3 -->
+        <div class="plain_container" id="step_3">
+          <div id="s3_hint" class="unsee_child">
+            <p>
+              <!-- Hint 3  -->
+              By replacing variable $a$ with $2-b$ or $b$ with $2-a$, the
+              orginal multivariable function could be converted into univariate
+              function, making problem much effortless. <br />
+              Before performing the replaction, you could simply evaluate their
+              diffcifulty and then choose the effortless way.
+            </p>
+          </div>
+
+          <div id="s3_check" class="unsee_child">
+            <p>
+              <!-- Check 3  -->
+              By replacing b with 2-a, $ |AB| = |a-(2-a), a^2+a^2+\frac{1}{2}| =
+              |2(a-1), 2a^2+\frac{1}{2} | $. <br />
+              Thus, $ |AB|^2 = 4(a-1)^2 + (2a^2+\frac{1}{2})^2 =
+              4a^4+6a^2-8a+\frac{17}{4} $ <br />
+              Let's call it $f(a)$.
+            </p>
+          </div>
+        </div>
+        <!-- The content for step 3-->
+
+        <li>
+          Get the derivative function of the simplified function.
+          <button id="but_4_1" onclick="hint_show(4)">Hint</button>
+          <button id="but_4_2" onclick="check_show(4)">Check</button>
+        </li>
+
+        <!-- The content for step 4 -->
+        <div class="plain_container" id="step_4">
+          <div id="s4_hint" class="unsee_child">
+            <p>
+              <!-- Hint 4  -->
+              Get the derivative function of $f(a) $(or $f(b) $ if you use
+              variable b).
+            </p>
+          </div>
+
+          <div id="s4_check" class="unsee_child">
+            <p>
+              <!-- Check 4  -->
+              $f(a)' = 16a^3+12a-8 = 4(4a^3+3a-2)$
+            </p>
+          </div>
+        </div>
+        <!-- The content for step 4-->
+
+        <li>
+          Find out the roots(zero points) of the derivative function.
+          <br />
+          The final answer should be the real solution.
+          <button id="but_5_1" onclick="hint_show(5)">Hint</button>
+          <button id="but_5_2" onclick="check_show(5)">Check</button>
+        </li>
+
+        <!-- The content for step 5 -->
+        <div class="plain_container" id="step_5">
+          <div id="s5_hint" class="unsee_child">
+            <p>
+              <!-- Hint 5  -->
+              Get the roots of equation of $f(a)' = 0$. <br />
+              The real solution would be the final feasible answer.
+            </p>
+          </div>
+
+          <div id="s5_check" class="unsee_child">
+            <p>
+              <!-- Check 5  -->
+              $f(a)' = 0 &rArr; (4a^3+3a-2) = 0 $ <br />
+              Regarding to sloving this equation, there are plenty of ways.
+              <br />
+              Below, we provide the codes that you can get the roots in Matlab.
+              <br />
+              The only real solution you would get is $a=\frac{1}{2}$. <br />
+              Thus, $b=\frac{3}{2}, A=(1/2, 1/4), B=(3/2,-3/4)$, and the
+              distance is $\sqrt{2}$.
+            </p>
+            <pre><code class="Matlab">p = [4 0 3 -2]; % the coeffcients following the decreasing order
+roots(p); % compute the roots </code></pre>
+          </div>
+        </div>
+        <!-- The content for step 5-->
+
+        <li>
+          Check for the Reference
+          <button id="but_2_3" onclick="refer_show(2)">Reference</button>
+        </li>
+
+        <div id="refer_2" class="plain_container">
+          <div id="s2_refer" class="unsee_child">
+            <!-- Reference in step 2  -->
+            <p>
+              Here is a video that detailed explains the solution to this
+              problem. Welcome to check the content.
+            </p>
+            <iframe
+              width="850"
+              height="400"
+              src="https://www.youtube.com/embed/aYA0qUh87Uc?si=I8n6oHnSoeQsLFCx"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </em>
+    </ol>
+
+    <!-- Step by step Self-learning 1 -->
+
+    <!-- answer check button 0 -->
+    <h2>Answer Check</h2>
+    <button id="ans_but" class="shbt" onclick="ans_show()">
+      <span>Check Answer</span>
+    </button>
+
+    <button id="sol_but" class="shbt" onclick="sol_show()">
+      <span>Check Full Solution</span>
+    </button>
+
+    <div class="container" id="box">
+      <div id="ans" class="unsee_child">
+        <p>
+          The distance is $\sqrt{2}$. <br />
+          The corresponding points are $A=(1/2, 1/4)$, $B=(3/2,-3/4)$
+        </p>
+      </div>
+
+      <div id="full_ans" class="unsee_child">
+        <p>
+          Let's say $A=(a,a^2)$ and $B=(b,-(b-2)^2)$. <br />
+          The slopes are same when the distance is minimal. (Unware of this? Go
+          for 'Multivariate Solution' to check your procedures. But through this
+          module, please remember this critial point by heart! It makes life
+          much easier!) <br />
+          Then, we got $2a=-2(b-2)$ &rarr; $a+b=2$. <br />
+          Thus, $B=(2-a,-a^2-\frac{1}{2})$. <br />
+          Then, distance $|AB|=|2a-2, 2a^2+\frac{1}{2}|$. <br />
+          To minimize $|AB|$, we minimize $|AB|^2=4a^4+6a^2-8a+\frac{17}{4}$.
+          <br />
+          The derivative of this function needs to be 0, so $4(4a^3+3a-2)=0$.
+          <br />
+          It turns out that this function has one real solution, namely when
+          $a=1/2$. <br />
+          So $A=(1/2, 1/4)$, $B=(3/2,-3/4)$. <br />
+          The distance is $|(2a-2,2a^2+\frac{1}{2})|=|(-1, 1)|=\sqrt{2}$.
+        </p>
+      </div>
+    </div>
+    <!-- The content for the answer check 1 -->
+
+    <!-- answer check 1 -->
+    <script src="index.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </body>
+</html>
